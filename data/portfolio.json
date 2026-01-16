@@ -1,0 +1,14 @@
+[
+  {
+    "symbol": "AAPL",
+    "quantity": 10,
+    "purchasePrice": 150,
+    "addedAt": "2026-01-16T21:41:34.255Z"
+  },
+  {
+    "symbol": "MU",
+    "quantity": 2291,
+    "purchasePrice": 340,
+    "addedAt": "2026-01-16T21:52:10.550Z"
+  }
+]

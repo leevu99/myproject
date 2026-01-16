@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Portfolio Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stock Portfolio Tracker</h1>
+        </header>
+
+        <section class="add-stock">
+            <h2>Add Position</h2>
+            <form id="add-stock-form">
+                <div class="form-group">
+                    <label for="symbol">Symbol</label>
+                    <input type="text" id="symbol" placeholder="e.g., AAPL" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Shares</label>
+                    <input type="number" id="quantity" placeholder="e.g., 10" min="0.01" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="purchasePrice">Purchase Price ($)</label>
+                    <input type="number" id="purchasePrice" placeholder="e.g., 150.00" min="0.01" step="0.01" required>
+                </div>
+                <button type="submit">Add Stock</button>
+            </form>
+        </section>
+
+        <section class="summary">
+            <div class="summary-card">
+                <span class="label">Total Value</span>
+                <span class="value" id="total-value">$0.00</span>
+            </div>
+            <div class="summary-card">
+                <span class="label">Total Cost</span>
+                <span class="value" id="total-cost">$0.00</span>
+            </div>
+            <div class="summary-card">
+                <span class="label">Total Gain/Loss</span>
+                <span class="value" id="total-gain">$0.00</span>
+            </div>
+        </section>
+
+        <section class="portfolio">
+            <h2>Your Portfolio</h2>
+            <div class="table-container">
+                <table id="portfolio-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Company</th>
+                            <th>Shares</th>
+                            <th>Avg Cost</th>
+                            <th>Current Price</th>
+                            <th>Value</th>
+                            <th>Gain/Loss</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="portfolio-body">
+                        <!-- Portfolio rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <p id="empty-message" class="empty-message">No stocks in portfolio. Add your first position above!</p>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
