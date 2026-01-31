@@ -1,0 +1,434 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a472a 0%, #0d2818 100%);
+    min-height: 100vh;
+    color: #fff;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.balance-display {
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+#balance {
+    color: #4ade80;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+/* Game Area */
+.game-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    min-height: 400px;
+}
+
+.hand-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px 20px;
+}
+
+.hand-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.hand-value {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 120px;
+    align-items: center;
+}
+
+/* Playing Cards */
+.card {
+    width: 80px;
+    height: 112px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    font-weight: bold;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+    position: relative;
+    animation: dealCard 0.3s ease-out;
+}
+
+@keyframes dealCard {
+    from {
+        transform: translateY(-50px) rotate(-10deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.card.hidden {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.card.hidden::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.card-corner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+}
+
+.card-corner.bottom {
+    align-self: flex-end;
+    transform: rotate(180deg);
+}
+
+.card-rank {
+    font-size: 1.2rem;
+}
+
+.card-suit {
+    font-size: 1rem;
+}
+
+.card.red {
+    color: #dc2626;
+}
+
+.card.black {
+    color: #1f2937;
+}
+
+.card-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+/* Message Area */
+.message-area {
+    text-align: center;
+    padding: 20px;
+    min-height: 60px;
+}
+
+#game-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#game-message.win {
+    color: #4ade80;
+}
+
+#game-message.lose {
+    color: #f87171;
+}
+
+#game-message.push {
+    color: #fbbf24;
+}
+
+#game-message.blackjack {
+    color: #ffd700;
+    font-size: 2rem;
+}
+
+/* Betting Area */
+.betting-area {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.bet-display {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+#current-bet {
+    color: #ffd700;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.chip-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.chip {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px dashed rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.chip:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.chip:active {
+    transform: scale(0.95);
+}
+
+.chip-10 {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #fff;
+}
+
+.chip-25 {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: #fff;
+}
+
+.chip-50 {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: #fff;
+}
+
+.chip-100 {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: #ffd700;
+}
+
+.bet-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+    color: #1f2937;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.btn-action {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #fff;
+    min-width: 100px;
+}
+
+/* Game Controls */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* New Game Area */
+.new-game-area {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Statistics */
+.stats-area {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#wins {
+    color: #4ade80;
+}
+
+#losses {
+    color: #f87171;
+}
+
+#pushes {
+    color: #fbbf24;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        width: 60px;
+        height: 84px;
+        padding: 5px;
+    }
+
+    .card-rank {
+        font-size: 1rem;
+    }
+
+    .card-suit {
+        font-size: 0.8rem;
+    }
+
+    .card-center {
+        font-size: 1.5rem;
+    }
+
+    .chip {
+        width: 50px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .game-controls {
+        gap: 10px;
+    }
+
+    .btn-action {
+        min-width: 80px;
+    }
+
+    .stats-area {
+        gap: 20px;
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+    }
+}

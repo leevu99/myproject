@@ -11,6 +11,11 @@ const DATA_FILE = path.join(__dirname, 'data', 'portfolio.json');
 app.use(express.json());
 app.use(express.static('public'));
 
+// Redirect /blackjack to blackjack app
+app.get('/blackjack', (req, res) => {
+    res.redirect('/blackjack/');
+});
+
 // Read portfolio data from JSON file
 function readPortfolio() {
     try {

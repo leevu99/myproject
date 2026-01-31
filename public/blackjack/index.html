@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Blackjack</h1>
+            <div class="balance-display">
+                <span>Balance:</span>
+                <span id="balance">$1000</span>
+            </div>
+        </header>
+
+        <main class="game-area">
+            <!-- Dealer Section -->
+            <div class="hand-section dealer-section">
+                <div class="hand-label">
+                    <span>Dealer</span>
+                    <span class="hand-value" id="dealer-value"></span>
+                </div>
+                <div class="cards" id="dealer-cards"></div>
+            </div>
+
+            <!-- Game Message -->
+            <div class="message-area">
+                <div id="game-message"></div>
+            </div>
+
+            <!-- Player Section -->
+            <div class="hand-section player-section">
+                <div class="hand-label">
+                    <span>You</span>
+                    <span class="hand-value" id="player-value"></span>
+                </div>
+                <div class="cards" id="player-cards"></div>
+            </div>
+        </main>
+
+        <!-- Betting Controls -->
+        <div class="betting-area" id="betting-area">
+            <div class="bet-display">
+                <span>Current Bet:</span>
+                <span id="current-bet">$0</span>
+            </div>
+            <div class="chip-buttons">
+                <button class="chip chip-10" data-value="10">$10</button>
+                <button class="chip chip-25" data-value="25">$25</button>
+                <button class="chip chip-50" data-value="50">$50</button>
+                <button class="chip chip-100" data-value="100">$100</button>
+            </div>
+            <div class="bet-actions">
+                <button id="clear-bet" class="btn btn-secondary">Clear</button>
+                <button id="deal-btn" class="btn btn-primary">Deal</button>
+            </div>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="game-controls" id="game-controls" style="display: none;">
+            <button id="hit-btn" class="btn btn-action">Hit</button>
+            <button id="stand-btn" class="btn btn-action">Stand</button>
+            <button id="double-btn" class="btn btn-action">Double</button>
+        </div>
+
+        <!-- New Game -->
+        <div class="new-game-area" id="new-game-area" style="display: none;">
+            <button id="new-game-btn" class="btn btn-primary">New Hand</button>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-area">
+            <div class="stat">
+                <span class="stat-label">Wins</span>
+                <span class="stat-value" id="wins">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Losses</span>
+                <span class="stat-value" id="losses">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Pushes</span>
+                <span class="stat-value" id="pushes">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
