@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a6b2a;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+#app {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#balance-display {
+  font-size: 1.2rem;
+  background: rgba(0,0,0,0.3);
+  padding: 6px 20px;
+  border-radius: 20px;
+}
+
+#dealer-area,
+#player-area {
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 140px;
+}
+
+.hand-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+.hand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card {
+  width: 70px;
+  height: 100px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  user-select: none;
+}
+
+.card.red {
+  color: #cc0000;
+}
+
+.card.black {
+  color: #111;
+}
+
+.card-top {
+  text-align: left;
+  line-height: 1;
+}
+
+.card-suit {
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.card-bottom {
+  text-align: right;
+  line-height: 1;
+  transform: rotate(180deg);
+}
+
+.card.face-down {
+  background: repeating-linear-gradient(
+    45deg,
+    #1a3a8f,
+    #1a3a8f 5px,
+    #1e50b3 5px,
+    #1e50b3 10px
+  );
+}
+
+#message-area {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+#message.win   { color: #ffd700; }
+#message.lose  { color: #ff6b6b; }
+#message.push  { color: #aadcff; }
+
+#bet-area {
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#bet-display {
+  font-size: 1.1rem;
+}
+
+#chip-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.chip {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px dashed rgba(255,255,255,0.5);
+  background: #c0392b;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+}
+
+.chip:hover  { transform: scale(1.1); background: #e74c3c; }
+.chip:active { transform: scale(0.95); }
+
+.chip[data-value="10"]  { background: #2980b9; }
+.chip[data-value="10"]:hover { background: #3498db; }
+.chip[data-value="25"]  { background: #27ae60; }
+.chip[data-value="25"]:hover { background: #2ecc71; }
+.chip[data-value="50"]  { background: #8e44ad; }
+.chip[data-value="50"]:hover { background: #9b59b6; }
+.chip[data-value="100"] { background: #e67e22; }
+.chip[data-value="100"]:hover { background: #f39c12; }
+
+#bet-controls {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.1s;
+}
+
+button:hover  { transform: scale(1.05); }
+button:active { transform: scale(0.97); }
+
+#deal-btn      { background: #f1c40f; color: #222; }
+#clear-bet-btn { background: rgba(255,255,255,0.2); color: #fff; }
+
+#action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#hit-btn    { background: #27ae60; color: #fff; }
+#stand-btn  { background: #c0392b; color: #fff; }
+#double-btn { background: #8e44ad; color: #fff; }
+
+#new-game-btn { background: #f1c40f; color: #222; padding: 12px 40px; font-size: 1.1rem; }
+
+.hidden { display: none !important; }
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}

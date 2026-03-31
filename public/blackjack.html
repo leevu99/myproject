@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackjack</title>
+  <link rel="stylesheet" href="blackjack.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Blackjack</h1>
+
+    <div id="balance-display">Balance: $<span id="balance">1000</span></div>
+
+    <div id="dealer-area">
+      <div class="hand-label">Dealer <span id="dealer-score"></span></div>
+      <div id="dealer-hand" class="hand"></div>
+    </div>
+
+    <div id="player-area">
+      <div class="hand-label">You <span id="player-score"></span></div>
+      <div id="player-hand" class="hand"></div>
+    </div>
+
+    <div id="message-area">
+      <div id="message"></div>
+    </div>
+
+    <div id="bet-area">
+      <div id="bet-display">Bet: $<span id="current-bet">0</span></div>
+      <div id="chip-buttons">
+        <button class="chip" data-value="5">$5</button>
+        <button class="chip" data-value="10">$10</button>
+        <button class="chip" data-value="25">$25</button>
+        <button class="chip" data-value="50">$50</button>
+        <button class="chip" data-value="100">$100</button>
+      </div>
+      <div id="bet-controls">
+        <button id="clear-bet-btn">Clear Bet</button>
+        <button id="deal-btn">Deal</button>
+      </div>
+    </div>
+
+    <div id="action-buttons" class="hidden">
+      <button id="hit-btn">Hit</button>
+      <button id="stand-btn">Stand</button>
+      <button id="double-btn">Double Down</button>
+    </div>
+
+    <div id="new-game-area" class="hidden">
+      <button id="new-game-btn">New Hand</button>
+    </div>
+  </div>
+
+  <script src="blackjack.js"></script>
+</body>
+</html>
